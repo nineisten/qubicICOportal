@@ -37,7 +37,7 @@ QIP solves this by providing:
 2. **Issuer** transfers full supply + management rights to QIP contract  
 3. **Issuer** calls `createICO()` with:  
    - 3 sale phases (amounts, prices)  
-   - 10 payout addresses + percentages (must sum ≤ 100%)  
+   - 10 payout addresses + percentages (must sum <= 95%)  
    - Start epoch  
 4. At `startEpoch`, Phase 1 begins  
 5. **Buyers** call `buyToken()` → pay in energy → receive tokens instantly  
