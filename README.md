@@ -1,58 +1,85 @@
-**QUBIC ICO Portal – Summary**  
-`Version 1.1`
+**Proposal to include QIP Smart Contract**
+
+**Proposal**  
+Allow QIP Smart Contract to be deployed on Qubic.
+
+**Available Options**
+
+- **Option 1:** Yes allow  
+- **Option 2:** Don’t Allow.
 
 ---
 
-### **Project Summary**
+**What is QIP?**
 
-The **QUBIC ICO Portal (QIP)** is a **fully automated, trustless smart contract** that enables **any project** to launch an ICO on QUBIC with **zero voting, zero consensus, and zero delays**.
-
----
-
-### **Core Function**
-- **Anyone** can launch a token by calling the contract with:  
-  - Token name, symbol, supply, logo (IPFS CID)  
-  - **Minimum 10M QUBIC**  
-- **Instant execution** — no approval, no gatekeepers  
+QIP (Qubic Initial Placement) is a smart contract that enables **token issuers to conduct a structured, multi-phase ICO** directly on the Qubic network. It allows creators to define up to 3 sale phases with different prices and supply caps, distribute proceeds to up to 10 recipient addresses, and automatically handle unsold tokens.
 
 ---
 
-### **Revenue Share (Automated Disbursement)**
+**What problem does QIP solve?**
 
-| Recipient | Share | Notes |
-|---------|-------|-------|
-| **CCF Treasury** | **95%** | Immutable address — funds sent immediately |
-| **Smart Contract Holders** | **5%** | Pro-rata distribution to all holders of the **SC ownership token** |
+Before QIP, Qubic had no native, standardized, or secure way to run **ICOs or token presales**. Projects had to rely on off-chain coordination or custom contracts with high risk of bugs, mismanagement, or unfair distribution.
 
-> **No voting. No governance. No control.**  
-> **Disbursement is 100% on-chain and automatic.**
+QIP solves this by providing:
 
----
-
-### **Key Features**
-- **No staking**  
-- **No governance token**  
-- **No pause or admin override**  
-- **CCF address is hardcoded and final**  
-- **5% share is distributed to SC token holders via on-chain logic**  
+- A **trusted, audited, and reusable ICO framework**  
+- **Transparent phase-based pricing and supply control**  
+- **Automatic distribution of funds** to team, treasury, or partners  
+- **Built-in rollover of unsold tokens** between phases  
+- **Return of unsold tokens** to the creator after final phase  
+- **No need for external escrow or manual transfers**
 
 ---
 
-### **Smart Contract Holders**
-- Hold the **QIP SC Token** (ownership token)  
-- **Automatically receive 5% of every ICO raise**  
-- **Pro-rata based on holdings**  
-- **No voting rights** — only revenue share  
+**User Flow**
+
+1. **Issuer** creates an asset (e.g., 1,000,000 "MYTOKEN") using QX contract  
+2. **Issuer** transfers full supply + management rights to QIP contract  
+3. **Issuer** calls `createICO()` with:  
+   - 3 sale phases (amounts, prices)  
+   - 10 payout addresses + percentages (must sum ≤ 100%)  
+   - Start epoch  
+4. At `startEpoch`, Phase 1 begins  
+5. **Buyers** call `buyToken()` → pay in energy → receive tokens instantly  
+6. **95% of funds** go to the 10 defined addresses (per %)  
+7. **5% remains in contract** (for future dividend use or burn)  
+8. At end of each phase: unsold tokens roll over to next phase  
+9. After Phase 3: unsold tokens return to creator, ICO is removed  
 
 ---
 
-### **Deployment**
-1. Deploy with:  
-   - `CCF_TREASURY = [immutable]`  
-   - `SC_TOKEN_ADDRESS = [ownership token]`  
-2. Projects call `launch()`  
-3. Funds split **95% → CCF**, **5% → SC holders** — instantly  
+**Technical Implementation**
+
+```cpp
+// Key functions
+createICO()        → sets phases, prices, recipients, start epoch
+buyToken()         → validates phase, price, supply; transfers tokens
+endEpoch()         → rolls over unsold tokens or returns to creator
+
+// Distribution logic (from buyToken tests)
+totalPayment = amount * currentPrice
+for i=1 to 10:
+    payout[i] = (totalPayment * percent[i]) / 100
+remaining = totalPayment - sum(payouts)  // ~5%
+contractBalance += remaining             // held for dividends/burn
+```
+
+- Uses **QX asset system** for token issuance & transfer  
+- Manages **share ownership and possession** via QX integration  
+- **No external dependencies** — fully on-chain  
+- **Tested with 20+ edge cases**: invalid epochs, prices, percentages, overflow  
+- **Secure by design**: only creator can set ICO, only during valid phases can buy  
 
 ---
 
-**Automation only. Revenue only. Done.**
+**Why deploy QIP on Qubic?**
+
+- Enables **real token sales** on a feeless, instant network  
+- Reduces **project launch friction**  
+- Increases **ecosystem activity and asset creation**  
+- Provides **fair, transparent fundraising** for all projects  
+
+---
+
+**Vote: Option 1 – Yes allow**  
+Let Qubic become the home of secure, native ICOs.

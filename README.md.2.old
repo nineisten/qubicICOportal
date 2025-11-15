@@ -1,0 +1,97 @@
+**Qubic ICO Portal (QIP) + QX Integration – Updated Project Summary**  
+*GitHub: [github.com/nineisten/qubicICOportal](https://github.com/nineisten/qubicICOportal)*
+
+---
+
+### **Project Name**: Qubic Instant Launchpad with QX-Powered Liquidity & Revenue Distribution (QIP+QX)
+
+---
+
+### **Core Vision**
+A **fully automated, permissionless, and trustless** token launch platform on the **Qubic blockchain** that seamlessly combines:
+- **Instant ICOs** with zero barriers
+- **Immediate liquidity** via the QX decentralized exchange
+- **Automatic revenue sharing** across ecosystem stakeholders
+
+> **Launch. List. Trade. Earn — all in one tick.**
+
+---
+
+### **Key Features**
+
+| Feature | Description |
+|-------|-----------|
+| **Instant Token Launch** | Any project can deploy a new token in a single step — no voting, no delays, no approvals. |
+| **Fixed Revenue Split** | 95% of all ICO proceeds go to the **CCF Treasury** (immutable), 5% distributed pro-rata to **QIP Ownership Token** holders. |
+| **Automatic QX Listing** | Upon launch, a portion of the token supply is **automatically placed on QX** as initial sell orders. |
+| **Secondary Market Access** | Token units function as tradable "shares" on QX, enabling instant liquidity and price discovery. |
+| **Passive Income Loop** | Trading activity on QX generates fees — benefiting QX shareholders and indirectly supporting the QIP ecosystem. |
+| **Deflationary by Design** | All QUBIC used in launches and trades is permanently burned, reducing total supply over time. |
+| **Zero Admin Risk** | No pause functions, no overrides, no central control — fully on-chain and immutable. |
+
+---
+
+### **End-to-End Flow**
+
+1. **Project launches token** through QIP  
+2. **Funds are split instantly**:  
+   - 95% → CCF Treasury  
+   - 5% → QIP Ownership Token holders  
+3. **Initial supply auto-listed** on QX as sell orders  
+4. **Trading begins immediately** on the QX order book  
+5. **Fees from trading** flow to QX shareholders  
+6. **QUBIC is burned** with every transaction  
+7. **Ecosystem grows** — more volume, more burns, more value
+
+---
+
+### **Token & Share Model**
+
+| Asset | Purpose |
+|------|--------|
+| **Project Token** | Core asset launched via QIP; tradable on QX |
+| **QIP Ownership Token** | Fixed token receiving 5% of every ICO |
+| **QX Shares (676 total)** | Earn passive income from **all QX trading volume**, including your token |
+
+> Holders benefit in **two layers**:  
+> - Direct 5% revenue from every QIP launch  
+> - Indirect gains from increased QX trading volume
+
+---
+
+### **Why It’s Revolutionary**
+
+| Traditional ICO | **QIP + QX** |
+|----------------|-------------|
+| Weeks of setup | Instant deployment |
+| No liquidity | Auto-listed on DEX |
+| Manual payouts | Fully automated |
+| Centralization risk | 100% trustless |
+| Isolated token | Integrated into Qubic economy |
+
+---
+
+### **Deployment & Usage**
+
+1. Deploy the QIP smart contract with fixed addresses  
+2. Launch your token with basic parameters  
+3. Watch it auto-list on QX and begin trading  
+4. Monitor via Qubic Explorer or QX dashboard
+
+---
+
+### **Future Roadmap**
+- User-friendly launch dashboard  
+- Automated dividend tracking  
+- Integration with Qubic Capital pools  
+- Support for NFTs and stable assets
+
+---
+
+**Tagline**:  
+> **"One click to launch. One tick to trade. Forever to earn."**
+
+---
+
+*QIP + QX = The Permissionless Launch Stack for Qubic.*  
+**Launch fast. Trade instantly. Grow together.**
