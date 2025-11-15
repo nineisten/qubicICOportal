@@ -12,7 +12,7 @@ Allow QIP Smart Contract to be deployed on Qubic.
 
 **What is QIP?**
 
-QIP (Qubic Initial Placement) is a smart contract that enables **token issuers to conduct a structured, multi-phase ICO** directly on the Qubic network. It allows creators to define up to 3 sale phases with different prices and supply caps, distribute proceeds to up to 10 recipient addresses, and automatically handle unsold tokens.
+QIP (Qubic ICO Portal) is a smart contract that enables **token issuers to conduct a structured, multi-phase ICO** directly on the Qubic network. It allows creators to define up to 3 sale phases with different prices and supply caps, distribute proceeds to up to 10 recipient addresses, and automatically handle unsold tokens.
 
 ---
 
