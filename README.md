@@ -1,4 +1,4 @@
-**Proposal to include QIP Smart Contract**
+## **Proposal to include QIP Smart Contract**
 
 **Proposal**  
 Allow QIP Smart Contract to be deployed on Qubic.
