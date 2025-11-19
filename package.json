@@ -13,6 +13,7 @@
   "dependencies": {
     "compression": "^1.8.1",
     "express": "^5.1.0",
+    "htmx.org": "^2.0.8",
     "sirv": "^3.0.2"
   },
   "devDependencies": {

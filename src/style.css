@@ -1,95 +1,132 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+* {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #3178c6aa);
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+}
+body {
+    background-color:#000;
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color:#fff;
+}
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+ul{
+    margin:0;
+    padding:0;
+    display:flex;
+    align-items: center;
+    gap:10pt;
+}
+li{
+    list-style-type: none;
+    text-transform: uppercase;
+    display:flex;
+    align-items: center;
+}
+a{
+    text-decoration: none;
+}
+/*
+  10. Create a root stacking context
+*/
+
+#root, #__next {
+  isolation: isolate;
+}
+button{
+    border:none;
+    outline:none;
+    border-radius: 5pt;
+    padding:10pt 40pt ;
+    font-weight:bold;
+    font-size:10pt;
+    text-transform:uppercase;
+    
+}
+header{
+    color:white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:10pt;
+}
+main{
+    flex-grow: 1;
+    background:slategray;
+}
+footer{
+    padding:10pt;
+    background-color:darkcyan;
+    text-align: center;
+    
+}
+
+.container{
+    min-width:100dvw;
+    min-height: 100dvh;
+    display:flex;
+    flex-direction:column;
+
+}
+.main_header{
+    font-size: 9pt;
+    font-weight:600;
+    /* background-color: gray; */
+}
+
+.logo{
+    max-width:fit-content;
+    display:flex;
+    color:white;
+    fill:currentColor;
+}
+.banner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding:6rem;
+    gap:10pt;
+    color:#fff;
+    text-align: center;
+}
+.banner h1{
+    font-size:4rem;
+    text-transform: uppercase;
+    line-height: .8;
+    /* margin:0;
+    padding:0; */
+}
+.banner button{
+    margin:1.5rem;
+}
+.copy{
+    font-size: 9pt;
+    text-transform:uppercase;
 }

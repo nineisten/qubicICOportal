@@ -35,12 +35,10 @@ if (!isProduction) {
 }
 
 // Serve HTML
-app.use('*all', async (req, res,next) => {
+app.use('*', async (req, res) => {
   try {
     const url = req.originalUrl.replace(base, '')
-    if (req.originalUrl.startsWith('/api')) {
-    return next(); // Skip SSR for API requests
-  }
+
     /** @type {string} */
     let template
     /** @type {import('./src/entry-server.ts').render} */
