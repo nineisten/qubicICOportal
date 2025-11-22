@@ -26,7 +26,7 @@ if (!isProduction) {
     appType: 'custom',
     base,
   })
-  app.use('/api',router)
+  app.use('/portal',router)
   app.use(vite.middlewares)
 } else {
   const compression = (await import('compression')).default
@@ -42,7 +42,7 @@ app.use('*all', async (req, res,next) => {
     const url = req.originalUrl.replace(base, '')
 
     // Skip SSR for API requests
-    if (req.originalUrl.startsWith('/api')) {
+    if (req.originalUrl.startsWith('/portal')) {
     return next(); 
   }
     /** @type {string} */

@@ -1,17 +1,17 @@
-const Blockquote = (content:string,...meta:{tag:string,val:string}[]) => {
+const Container = (content:string,...meta:{tag:string,val:string}[]) => {
 const html = /*html*/`
-    <blockquote
+    <div 
         ${
             meta.map((m)=>/*html*/`
             ${m.tag}="${m.val}"
                 `
             ).join(' ')
         }
-        class="quote"
+        class="container"
     >
         ${content}
-    </blockquote>
+    </div>
 `
 return html
 }
-export default Blockquote;
+export default Container;
