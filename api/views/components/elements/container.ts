@@ -5,6 +5,7 @@ const css = /*css*/`
     display:flex;
     flex-direction:column;
     color:white;
+    background:slategray;
     }
 
 `

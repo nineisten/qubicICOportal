@@ -4,7 +4,7 @@ const css = /*css*/`
     }
 `
 
-import logo from "../components/branding/logo.ts"
+import Logo from "../components/branding/logo.ts"
 import Header from "../components/elements/header"
 function MainHeader(user:true){
     
@@ -13,7 +13,7 @@ function MainHeader(user:true){
 ${Header(/*html*/`
     <style>${css}</style>
     ${user?/*html*/`
-    ${logo(200)}
+    ${(Logo(200))}
     <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
@@ -25,7 +25,7 @@ ${Header(/*html*/`
     </button>
 `
 :/*html*/`
-    ${logo(200)}
+    ${Logo(200)}
     <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>

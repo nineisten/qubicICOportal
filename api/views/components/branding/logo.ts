@@ -1,4 +1,21 @@
-const logo = (w:number)=>/*html*/`
+
+const css = /*css*/`
+    .logo{
+        fill:currentColor;
+        image-rendering: -webkit-optimize-contrast;  /* Safari crisp edges */
+        image-rendering: crisp-edges;                /* Firefox & older */
+        image-rendering: pixelated;                   /* If it's a pixel-art logo (rare) */
+        image-rendering: optimizeQuality;
+        image-rendering: auto;
+        shape-rendering: geometricPrecision;
+        display:block;
+    }
+    
+
+`
+function Logo(w:number){
+    const html = /*html*/`
+    <style>${css}</style>
     <svg
     xmlns="http://www.w3.org/2000/svg" 
     viewBox="0 0 3165.65 335.05"
@@ -39,4 +56,6 @@ const logo = (w:number)=>/*html*/`
         <rect width="318.65" height="50.73" rx="2.13"/>
     </svg>
 `
-export default logo;
+    return html
+}
+export default Logo;
