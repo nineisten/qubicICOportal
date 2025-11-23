@@ -1,13 +1,22 @@
 import AppFrame from "../mods/app_frame.ts"
 import MainHeader from "../mods/main_header.ts";
+import Main from "../components/elements/main.ts";
+import Footer from "../components/elements/footer.ts";
 
 const serve = ()=>{
     const html = /*html*/`
         ${AppFrame(/*html*/`
-            ${MainHeader(true)} 
+            <!--app starts here-->
+            ${MainHeader(true)}
+            ${Main(/*html*/` <!-- page content swaps here-->
+            `,{tag:'id',val:'content_module'})}
+            ${Footer({year:2025,entity:'Qubic ICO'},/*html*/`
             `)}
+            <!--app ends here-->
+        `)}
         
     `
     return html
 }
 export default serve;
+

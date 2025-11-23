@@ -1,5 +1,10 @@
-const Div = (content:string,...meta:{tag:string,val:string}[]) => {
+const css = /*css*/`
+    
+`
+
+function Div (content:string,...meta:{tag:string,val:string}[]){
 const html = /*html*/`
+    <style>css</style>
     <div 
         ${
             meta.map((m)=>/*html*/`
