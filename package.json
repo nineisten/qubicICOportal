@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "nodemon server",
+    "dev": "tsx watch server",
     "build": "npm run build:client && npm run build:server",
     "build:client": "vite build --outDir dist/client",
     "build:server": "vite build --ssr src/entry-server.ts --outDir dist/server",
@@ -14,8 +14,8 @@
     "compression": "^1.8.1",
     "express": "^5.1.0",
     "htmx.org": "^2.0.8",
-    "nodemon": "^3.1.11",
-    "sirv": "^3.0.2"
+    "sirv": "^3.0.2",
+    "tsx": "^4.20.6"
   },
   "devDependencies": {
     "@types/express": "^5.0.3",
