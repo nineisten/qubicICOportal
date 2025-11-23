@@ -7,7 +7,7 @@
 - components should only be used for HTML elements or minor custom components like svg files.
 - Modules and pages can be built by nesting componenets and applying attributes (rest operator allows for multiple comma separated objects)
 - syntax:  
-```bash
+```
     // use standard functions and not arrow functions
     function SomeModule (content:string,...meta:{tag:string,val:string}){
           const html = /*html*/`
@@ -40,7 +40,7 @@
 - this is the file that makes the magic happen
 
     ---
-    ```bash
+    ~~~
     //import all necessary components
     import AppFrame from "../mods/app_frame.ts";
     import MainHeader from "../mods/main_header.ts";
@@ -68,10 +68,10 @@
         `)}
         
     `
-    return html}
+    return html }
     export default serve;
 
-```
+    ~~~
 - The creates a contained environment for you to quickly build effective Views.
 
 - happy coding. 
