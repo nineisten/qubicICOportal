@@ -7,9 +7,7 @@
     - /views - template distro
         - /pages - page templates
         - /mods - module templates
-
-- 
-
+- browser routes are hanldled with htmx like shown below
 - example request:
 
 ~~~typescript
