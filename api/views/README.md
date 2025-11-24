@@ -9,7 +9,11 @@
 - syntax:  
 ```javascript
     // use standard functions and not arrow functions
+    const html = /*css*/`
+        #css goes here
+    `
     function SomeModule (content:string,...meta:{tag:string,val:string}[]){
+        <style>${css}</style>
           const html = /*html*/`
             ${ExampleModule(
                 /*html*/`
