@@ -9,7 +9,7 @@
 - syntax:  
 ```javascript
     // use standard functions and not arrow functions
-    function SomeModule (content:string,...meta:{tag:string,val:string}){
+    function SomeModule (content:string,...meta:{tag:string,val:string}[]){
           const html = /*html*/`
             ${ExampleModule(
                 /*html*/`
@@ -40,7 +40,7 @@
 - this is the file that makes the magic happen
 
     ---
-    ~~~javascript
+    ~~~javascript 
     //import all necessary components
     import AppFrame from "../mods/app_frame.ts";
     import MainHeader from "../mods/main_header.ts";
