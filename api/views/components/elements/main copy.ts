@@ -1,17 +1,15 @@
 //Stylesheet
 const css = /*css*/`
-    main{
-        display:flex;
-        flex-direction:column;
-        flex-grow:1;
+    nav{
+        
     }
 `
 
 //View template
-function Main(content:string,...meta:{tag:string,val:string}[]){
+function Nav(content:string,...meta:{tag:string,val:string}[]){
 const html = /*html*/`
     <style>${css}</style>
-    <main 
+    <nav 
         ${
             meta.map((m)=>/*html*/`
             ${m.tag}="${m.val}"
@@ -20,8 +18,8 @@ const html = /*html*/`
         }
     >
         ${content}
-    </main>
+    </nav>
 `
 return html
 }
-export default Main;
+export default Nav;

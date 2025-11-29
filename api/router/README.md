@@ -18,7 +18,7 @@
                 `,
                 {tag:'id',val:`link_${i}`},
                 //... more attributes here
-                {tag:'hx-get',val:'/portal/views/pages/about'},
+                {tag:'hx-get',val:'/portal/views/page/about'},
                 {tag:'hx-swap',val:'inner-html'},
                 {tag:'hx-trigger',val:'click'},
                 {tag:'hx-target','#main_content'},

@@ -1,7 +1,18 @@
 
 const css = /*css*/`
     button{
-
+        padding:5pt 10pt;
+        font-size:9pt;
+        font-weight:600;
+        box-sizing:border-box;
+        text-transform:uppercase;
+        border-radius:5pt;
+        border:none;
+        min-width: max-content;
+        display:flex;
+        align-items:center;
+        justify-content:space-evenly;
+        gap:5pt;
     }
 `
 function Button(label:string,...meta:{tag:string,val:string}[]){
@@ -14,12 +25,11 @@ const html = /*html*/`
             `
             ).join(' ')
         }
-        class="btn
-    "
+        class="btn"
     >
         ${label}
     </button>
 `
-return html
+return html.trim()
 }
 export default Button;

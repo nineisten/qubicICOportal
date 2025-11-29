@@ -3,7 +3,6 @@ const css = /*css*/`
         padding:10pt;
     }
 `
-
 function Blockquote(content:string,...meta:{tag:string,val:string}[]) {
     const html = /*html*/`
         <style>${css}</style>
@@ -14,7 +13,6 @@ function Blockquote(content:string,...meta:{tag:string,val:string}[]) {
                     `
                 ).join(' ')
             }
-            class="quote"
         >
             ${content}
         </blockquote>

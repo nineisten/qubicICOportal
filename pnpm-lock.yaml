@@ -14,6 +14,9 @@ importers:
       express:
         specifier: ^5.1.0
         version: 5.1.0
+      htmx-ext-sse:
+        specifier: ^2.2.4
+        version: 2.2.4
       htmx.org:
         specifier: ^2.0.8
         version: 2.0.8
@@ -517,6 +520,9 @@ packages:
   hasown@2.0.2:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
+
+  htmx-ext-sse@2.2.4:
+    resolution: {integrity: sha512-LJmxVhykyflBWgh5PvbRidcyuqMHlgfajmmzumvKctv9puvsufeH6OaejSMZTNTnEI8O2wXXn4ZZtBdpEMqmEQ==}
 
   htmx.org@2.0.8:
     resolution: {integrity: sha512-fm297iru0iWsNJlBrjvtN7V9zjaxd+69Oqjh4F/Vq9Wwi2kFisLcrLCiv5oBX0KLfOX/zG8AUo9ROMU5XUB44Q==}
@@ -1209,6 +1215,10 @@ snapshots:
   hasown@2.0.2:
     dependencies:
       function-bind: 1.1.2
+
+  htmx-ext-sse@2.2.4:
+    dependencies:
+      htmx.org: 2.0.8
 
   htmx.org@2.0.8: {}
 

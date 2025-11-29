@@ -5,9 +5,8 @@ const css = /*css*/`
     display:flex;
     flex-direction:column;
     color:white;
-    background:slategray;
+    background: #0f1525ff;
     }
-
 `
 const Container = (content:string,...meta:{tag:string,val:string}[]) => {
 const html = /*html*/`

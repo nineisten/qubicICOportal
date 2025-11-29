@@ -15,6 +15,10 @@ const templateHtml = isProduction
 
 // Create http server
 const app = express()
+app.use((req, res, next) => {
+    res.locals.useLayout = req.headers["hx-request"] !== "true";
+    next();
+})
 app.use('/api',router)
 // Add Vite or respective production middlewares
 /** @type {import('vite').ViteDevServer | undefined} */

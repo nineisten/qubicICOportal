@@ -9,12 +9,18 @@ const serve = ()=>{
             <!--app starts here-->
             ${MainHeader(true)}
             ${Main(/*html*/` <!-- page content swaps here-->
-            `,{tag:'id',val:'content_module'})}
+            `,
+            {tag:'id',val:'content_module'},
+            {tag:'hx-get',val:'portal/views/page/home'},
+            {tag:'hx-target',val:'#content_module'},
+            {tag: 'hx-swap',val:'innerHTML'},
+            {tag:'hx-trigger',val:'load'},
+            {tag:'hx-push-url',val:'/'},
+            )}
             ${Footer({year:2025,entity:'Qubic ICO'},/*html*/`
             `)}
             <!--app ends here-->
         `)}
-        
     `
     return html
 }

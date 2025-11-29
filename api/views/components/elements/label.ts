@@ -13,6 +13,6 @@ function Label (content:string,...meta:{tag:string,val:string}[]){
             ${content}
         </label>
     `
-    return html
+    return html.trim()
 }
 export default Label;

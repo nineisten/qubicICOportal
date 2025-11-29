@@ -1,5 +1,7 @@
 const css = /*css*/`
-    
+    a {
+        color:#fff;
+    }
 `
 function Link (url:string,content:string,...meta:{tag:string,val:string}[]){
     const html = /*html*/`
