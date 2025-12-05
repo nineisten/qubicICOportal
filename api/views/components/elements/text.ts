@@ -1,19 +1,17 @@
 import type { GlobalHtmlAttributes} from "../../types/html_attrs";
 import { html, HtmlSafeString } from "../../types/safe_html";
 
-interface SpanProps extends GlobalHtmlAttributes {
+interface TextProps extends GlobalHtmlAttributes {
     content: string | HtmlSafeString
 }
 //Stylesheet
 const css:string = /*css*/`
-    span{
-        display:flex;
-        flex-direction:column;
-        flex-grow:1;
+    p{
+        
     }
 `
 //View template
-export default function Span(props:SpanProps){
+export default function Text(props:TextProps){
     const {content,...attrs} = props
    
     const attrStr = Object.entries(attrs)
@@ -23,10 +21,11 @@ export default function Span(props:SpanProps){
     .trim()
    return html`
         <style>${css}</style>
-        <span ${attrStr}>
+        <p ${attrStr}>
         ${content}
-        </span>
+        </p>
     `
     .trim()
 }
 const escape = (s:string)=>s.replace(/&/g,'&amp;').replace(/"/g,'&quot;')
+

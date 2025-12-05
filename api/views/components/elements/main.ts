@@ -1,27 +1,32 @@
+import type { GlobalHtmlAttributes} from "../../types/html_attrs";
+import { html, HtmlSafeString } from "../../types/safe_html";
+
+interface MainProps extends GlobalHtmlAttributes {
+    content: string | HtmlSafeString
+}
 //Stylesheet
-const css = /*css*/`
+const css:string = /*css*/`
     main{
         display:flex;
         flex-direction:column;
         flex-grow:1;
     }
 `
-
 //View template
-function Main(content:string,...meta:{tag:string,val:string}[]){
-const html = /*html*/`
-    <style>${css}</style>
-    <main 
-        ${
-            meta.map((m)=>/*html*/`
-            ${m.tag}="${m.val}"
-                `
-            ).join(' ')
-        }
-    >
+export default function Main(props:MainProps){
+    const {content,...attrs} = props
+   
+    const attrStr = Object.entries(attrs)
+    .filter(([_, v]) => v != null)
+    .map(([k, v]) => (v === true ? k : `${k}="${escape(String(v))}"`))
+    .join(' ')
+    .trim()
+   return html`
+        <style>${css}</style>
+        <main ${attrStr}>
         ${content}
-    </main>
-`
-return html
+        </main>
+    `
+    .trim()
 }
-export default Main;
+const escape = (s:string)=>s.replace(/&/g,'&amp;').replace(/"/g,'&quot;')

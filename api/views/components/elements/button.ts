@@ -1,4 +1,10 @@
 
+import type { GlobalHtmlAttributes} from "../../types/html_attrs";
+import { html, HtmlSafeString } from "../../types/safe_html";
+
+interface ButtonProps extends GlobalHtmlAttributes {
+    label: string | HtmlSafeString
+}
 const css = /*css*/`
     button{
         padding:5pt 10pt;
@@ -15,21 +21,20 @@ const css = /*css*/`
         gap:5pt;
     }
 `
-function Button(label:string,...meta:{tag:string,val:string}[]){
-const html = /*html*/`
-    <style>${css}</style>
-    <button 
-        ${
-            meta.map((m)=>/*html*/`
-            ${m.tag}="${m.val}"
-            `
-            ).join(' ')
-        }
-        class="btn"
-    >
+
+//View template
+export default function Button(props:ButtonProps){
+    const {label,...attrs} = props
+    const attrStr = Object.entries(attrs)
+    .filter(([_, v]) => v != null)
+    .map(([k, v]) => (v === true ? k : `${k}="${escape(String(v))}"`))
+    .join(' ')
+    .trim()
+   return html`
+        <style>${css}</style>
+        <button ${attrStr}>
         ${label}
-    </button>
-`
-return html.trim()
+        </button>
+    `
 }
-export default Button;
+const escape = (s:string)=>s.replace(/&/g,'&amp;').replace(/"/g,'&quot;')

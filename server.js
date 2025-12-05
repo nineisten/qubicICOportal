@@ -19,7 +19,6 @@ app.use((req, res, next) => {
     res.locals.useLayout = req.headers["hx-request"] !== "true";
     next();
 })
-app.use('/api',router)
 // Add Vite or respective production middlewares
 /** @type {import('vite').ViteDevServer | undefined} */
 let vite
@@ -44,6 +43,7 @@ app.use('*all', async (req, res,next) => {
   try {
     //swap the base url
     const url = req.originalUrl.replace(base, '')
+    console.log(url)
 
     // Skip SSR for API requests
     if (req.originalUrl.startsWith('/portal')) {
@@ -63,7 +63,9 @@ app.use('*all', async (req, res,next) => {
       render = (await import('./dist/server/entry-server.js')).render
     }
 
-    const rendered = await render(url)
+    const rendered = await render(url, {
+      isHtmx: req.headers['hx-request'] === 'true'
+    })
 
     const html = template
       .replace(`<!--app-head-->`, rendered.head ?? '')

@@ -1,18 +1,30 @@
+import type { GlobalHtmlAttributes} from "../../types/html_attrs";
+import { html, HtmlSafeString } from "../../types/safe_html";
+
+interface FormProps extends GlobalHtmlAttributes {
+    content: string | HtmlSafeString
+}
+
 const css = /*css*/`
-    
+    form{
+    }
 `
-function Form (content:string,...meta:{tag:string,val:string}[]){
-    const html = /*html*/`
+
+//View template
+export default function Form(props:FormProps){
+    const {content,...attrs} = props
+    const attrStr = Object.entries(attrs)
+    .filter(([_, v]) => v != null)
+    .map(([k, v]) => (v === true ? k : `${k}="${escape(String(v))}"`))
+    .join(' ')
+    .trim()
+   return html`
         <style>${css}</style>
-        <form 
-        ${meta.map((m)=>/*html*/`
-            ${m.tag}=${m.val}
-        `
-        ).join(' ')}
-        >
-            ${content}
+        <form ${attrStr}>
+        ${content}
         </form>
     `
-    return html
 }
-export default Form;
+const escape = (s:string)=>s.replace(/&/g,'&amp;').replace(/"/g,'&quot;')
+
+

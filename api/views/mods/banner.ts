@@ -1,10 +1,22 @@
+import type { GlobalHtmlAttributes} from "../types/html_attrs";
+import { html, HtmlSafeString } from "../types/safe_html";
+import Div from "../components/elements/div";
+
+interface BannerProps extends GlobalHtmlAttributes {
+    content: string | HtmlSafeString
+}
+
 const css = /*css*/`
     .banner{
         display:flex;
         flex-direction:column;
         align-items:center;
+        justify-content:center;
         gap:5pt;
         text-transform:uppercase;
+        background:black;
+        width:100%;
+        flex-grow:1;
     }
     .banner h1{
         font-size:5rem;
@@ -28,19 +40,26 @@ const css = /*css*/`
         font-size:12pt;
     }
 `
-function Banner (content:string,...meta:{tag:string,val:string}[]){
-    const html = /*html*/`
+
+export default function Banner(props:BannerProps){
+    const {content,...attrs} = props
+    const attrStr = Object.entries(attrs)
+    .filter(([_, v]) => v != null)
+    .map(([k, v]) => (v === true ? k : `${k}="${escape(String(v))}"`))
+    .join(' ')
+    .trim()
+   return html`
         <style>${css}</style>
-        <div 
-        class= 'banner'
-        ${meta.map((m)=>/*html*/`
-            ${m.tag}=${m.val}
-        `
-        ).join(' ')}
-        >
-            ${content}
-        </div>
+        ${Div({
+            content:/*html*/`
+                ${content}
+            `,
+            class:'banner',
+            attrStr
+        })}
     `
-    return html
 }
-export default Banner;
+const escape = (s:string)=>s.replace(/&/g,'&amp;').replace(/"/g,'&quot;')
+
+
+

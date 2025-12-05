@@ -1,18 +1,26 @@
-const css = /*css*/`
-    
+import type { GlobalHtmlAttributes} from "../../types/html_attrs";
+import { html, HtmlSafeString } from "../../types/safe_html";
+
+interface DivProps extends GlobalHtmlAttributes {
+    content: string | HtmlSafeString
+}
+//Stylesheet
+const css:string = /*css*/`
+
 `
-function Div (content:string,...meta:{tag:string,val:string}[]){
-    const html = /*html*/`
+//View template
+export default function Div(props:DivProps){
+    const {content,...attrs} = props
+    const attrStr = Object.entries(attrs)
+    .filter(([_, v]) => v != null)
+    .map(([k, v]) => (v === true ? k : `${k}="${escape(String(v))}"`))
+    .join(' ')
+    .trim()
+   return html`
         <style>${css}</style>
-        <div 
-        ${meta.map((m)=>/*html*/`
-            ${m.tag}=${m.val}
-        `
-        ).join(' ')}
-        >
-            ${content}
+        <div ${attrStr}>
+        ${content}
         </div>
     `
-    return html
 }
-export default Div;
+const escape = (s:string)=>s.replace(/&/g,'&amp;').replace(/"/g,'&quot;')

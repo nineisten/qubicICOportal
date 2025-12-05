@@ -1,3 +1,9 @@
+import type { GlobalHtmlAttributes} from "../../types/html_attrs";
+import { html, HtmlSafeString } from "../../types/safe_html";
+
+interface HeaderProps extends GlobalHtmlAttributes {
+    content: string | HtmlSafeString
+}
 
 const css = /*css*/`
   header{
@@ -9,14 +15,19 @@ const css = /*css*/`
     color:white;
   }
 `
-function Header (content:string,...meta:{tag:string,val:string}[]){
-  const html = /*html*/`
-    <style>${css}</style>
-    <header  
-      ${meta.map(m=>`${m.tag}="${m.val}"`).join(' ')}>
+//View template
+export default function Header(props:HeaderProps){
+    const {content,...attrs} = props
+    const attrStr = Object.entries(attrs)
+    .filter(([_, v]) => v != null)
+    .map(([k, v]) => (v === true ? k : `${k}="${escape(String(v))}"`))
+    .join(' ')
+    .trim()
+   return html`
+        <style>${css}</style>
+        <header ${attrStr}>
         ${content}
-    </header>
-  `;
-  return html
+        </header>
+    `.trim()
 }
-export default Header;
+const escape = (s:string)=>s.replace(/&/g,'&amp;').replace(/"/g,'&quot;')
