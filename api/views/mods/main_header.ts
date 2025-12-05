@@ -1,9 +1,7 @@
 import Logo from "../components/branding/logo.ts"
 import Link from "../components/elements/link.ts"
 import Li from "../components/elements/li.ts"
-import Ul from "../components/elements/ul.ts"
 import Header from "../components/elements/header"
-import {links} from "../../models/links.ts"
 import Button from "../components/elements/button.ts"
 import Nav from "../components/elements/nav.ts"
 import { lock } from "../components/svg/lock.ts"
@@ -76,7 +74,8 @@ export default function MainHeader(props:MainHeaderProps){
                 <!--end header-->
             `,
             id:'main_header',
-            class:'mainHeader'
+            class:'mainHeader',
+            attrStr
         })}
     `
     .trim()
