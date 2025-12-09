@@ -7,21 +7,29 @@ interface SectionProps extends GlobalHtmlAttributes {
 
 const css = /*css*/`
     section{
-        display:flex;
         flex-grow:1;
     }
-    .rows{
+    .flex_rows{
+        display:flex;
         flex-direction:row;
         align-items: center;
         justify-content:space-evenly;
     }
-    .columns{
+    .flex_columns{
+        display:flex;
         flex-direction:column;
-        justify-content:flex-start;
+        justify-content:center;
         align-items:center;
         gap:10pt;
         /* flex-grow:1; */
     }
+    .grid_columns {
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(270pt,1fr));
+        gap:10pt;
+        padding:10pt;
+    }
+
 `
 //View template
 export default function Section(props:SectionProps){

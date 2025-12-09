@@ -12,13 +12,16 @@ const css = /*css*/`
         font-weight:600;
         box-sizing:border-box;
         text-transform:uppercase;
-        border-radius:5pt;
-        border:none;
+        border-radius:10pt;
+        border:1pt solid var(--primary-color);
+        color:var(--primary-color);
+        background:none;
         min-width: max-content;
         display:flex;
         align-items:center;
         justify-content:space-evenly;
         gap:5pt;
+        cursor:pointer;
     }
 `
 

@@ -1,7 +1,7 @@
 import serve from '../api/views/pages/serve'
 export function render(_url: string) {
   const html = /*html*/`
-    <div hx-boost="true">
+    <div>
     ${serve(_url)}
   </div>
     `

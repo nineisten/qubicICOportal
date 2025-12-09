@@ -4,8 +4,10 @@ import Main from "../components/elements/main.ts";
 import Footer from "../components/elements/footer.ts";
 
 const serve = (_url:string)=>{
-    console.log(_url)
+    // console.log(_url)
     const templateFromUrl = _url !== ''? _url:'home'
+    console.log(templateFromUrl)
+
     const html = /*html*/`
         
         ${AppFrame({

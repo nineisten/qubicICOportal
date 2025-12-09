@@ -14,19 +14,17 @@ const css = /*css*/`
         justify-content:center;
         gap:5pt;
         text-transform:uppercase;
-        background:black;
         width:100%;
         flex-grow:1;
     }
     .banner h1{
-        font-size:5rem;
+        font-size:3.5rem;
         font-weight:600;
-        
         margin:0;
-        border:3pt solid #fff;
         padding:10pt 20pt;
         border-radius: 5pt;
         box-sizing: content-box;
+        text-align:center;
     }
     .banner h5{
         font-size:1.25rem;

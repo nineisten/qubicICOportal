@@ -13,7 +13,6 @@ const css:string = /*css*/`
         display:flex;
         flex-direction:column;
         color:white;
-        background: #0f1525ff;
     }
 `
 //View template

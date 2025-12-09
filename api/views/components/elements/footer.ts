@@ -8,8 +8,8 @@ interface FooterProps extends GlobalHtmlAttributes {
 const css = /*css*/`
     footer{
         color:white;
-        padding:10pt;
-        background-color:darkcyan;
+        padding:20pt;
+        border-top:1pt solid var(--primary-color);
         text-align: center;
     }
 

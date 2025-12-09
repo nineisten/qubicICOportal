@@ -10,17 +10,78 @@ interface CardProps extends GlobalHtmlAttributes {
 
 const css = /*css*/`
     .card{
-
-
+        display:flex;
+        flex-grow:1;
+        flex-direction:column;
+        gap:10pt;
+        min-width:min-content;
+        border-radius:10pt;
+        overflow:hidden;
+        border:1pt solid var(--primary-color)
     }
-    .card_head{
+    .card_header{
+        display:flex;
+
+        flex-direction:row;
+        justify-content: space-between;
+        min-width:min-content;
+        padding: 10pt;
+        border-bottom:1pt solid var(--bg-color);
+    }
+    .card_body{
+        padding:0 10pt;
+        min-width:min-content;
+        display: flex;
+        justify-content:center;
+        align-items:center;
+        text-align:center;
+        flex-grow:1;
+        
 
     }
     .card_body{
-
+        h1,h2,h3,h4,h5,h6{
+        }
     }
     .card_footer{
+        min-width:min-content;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:space-evenly;
+        min-width:max-content;
+        border-top:1pt solid var(--primary-color);
+        flex-wrap:wrap;
+
+    }
+    .tiles{
+        display:flex;
+        gap:10pt;
+        padding:10pt;
         
+    }
+    .tile{
+        display:flex;
+        width:max-content;
+        align-items:center;
+        justify-content:space-evenly;
+        white-space: nowrap;
+        min-width: max-content;
+        gap:2pt;
+        h1,h2,h3,h4,h5,h6{
+            white-space: nowrap;
+        }
+    }
+    .fullButton{
+        border-top:1pt solid var(--primary-color);
+        width:100%;
+        height:40pt;
+        font-size:10pt;
+        background:none;
+        border-top-left-radius:0;
+        border-top-right-radius:0;
+        color:var(--primary-color);
+        cursor:pointer;
     }
 `
 

@@ -1,14 +1,14 @@
 import { Router } from "express";
 import serve from "../../../views/pages/serve.ts";
 import Home from "../../../views/pages/index.ts";
-import About from "../../../views/pages/About.ts";
-import Contact from "../../../views/pages/Contact.ts";
+import About from "../../../views/pages/about.ts";
+import Contact from "../../../views/pages/contact.ts";
 
 const pageRouter = Router();
 pageRouter.get('/serve',(req,res)=>
 {
     try{
-    res.status(200).send(serve());
+    res.status(200).send(serve('url'));
     console.log("App Frame has launched successfully")
     }   
     catch(err){
