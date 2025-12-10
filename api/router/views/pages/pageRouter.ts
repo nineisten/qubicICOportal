@@ -5,16 +5,16 @@ import About from "../../../views/pages/about.ts";
 import Contact from "../../../views/pages/contact.ts";
 
 const pageRouter = Router();
-pageRouter.get('/serve',(req,res)=>
-{
-    try{
-    res.status(200).send(serve('url'));
-    console.log("App Frame has launched successfully")
-    }   
-    catch(err){
-      res.status(500).send({msg:"Error loading Home page",err});
-    }
-}); 
+// pageRouter.get('/serve',(req,res)=>
+// {
+//     try{
+//     res.status(200).send(serve('url'));
+//     console.log("App Frame has launched successfully")
+//     }   
+//     catch(err){
+//       res.status(500).send({msg:"Error loading Home page",err});
+//     }
+// }); 
 pageRouter.get('/home',(req,res)=>
 {
     try{

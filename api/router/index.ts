@@ -1,8 +1,7 @@
 import { Router } from "express";
 import viewsRouter from "./views/viewRouter.ts";
 import apiRouter from "./client/clientRouter.ts";
-import Home from "../views/pages/index.ts";
-import About from "../views/pages/about.ts";
+
 const router = Router();
 
 router.get("/", (req, res) => {

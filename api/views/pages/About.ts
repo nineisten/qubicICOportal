@@ -18,14 +18,12 @@ const css = /*css*/`
         display:flex;
         flex-direction:column;
         max-width: 60%;
-        gap:10pt;
+        gap:10pt;about]
     }
 `
 function About(){
     const html = /*html*/`
      <style>${css}</style>
-    ${Main({
-        content:/*html*/`
         <!--start main-->
         ${Section({
             content:/*html*/`
@@ -59,14 +57,7 @@ function About(){
             `,
             class:'flex_columns'
         })}
-       
-        
         <!--end main-->
-    `,
-    'hx-location':'/about',
-    'hx-push-url':'/about'
-
-    })}
     `
     return html.trim()
 }
