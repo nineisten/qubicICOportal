@@ -18,7 +18,7 @@ const css = /*css*/`
         display:flex;
         flex-direction:column;
         max-width: 60%;
-        gap:10pt;about]
+        gap:10pt;
     }
 `
 function About(){

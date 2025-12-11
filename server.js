@@ -67,7 +67,8 @@ app.use('*all', async (req, res,next) => {
       isHtmx: req.headers['hx-request'] === 'true'
     })
     if (rendered.notFound){
-      res.status(404)
+      console.log(rendered, 'not-found')
+      res.status(404).send('Ooops cant find it')
     }
 
     const html = template
@@ -76,16 +77,6 @@ app.use('*all', async (req, res,next) => {
 
     res.status(200).set({ 'Content-Type': 'text/html' }).send(html)
   } catch (e) {
-    if ( e.code === 'ENOENT' || e.nessage.includes('Cannot find Module')){
-      try{
-        const fallbackHtml = await fs.readFile(!isProduction?'index.html':'./dist/client/index.html','utf-8')
-        const html = fallbackHtml
-        .replace(`<!--app-head-->`, '<title>404 – Qubic ICO Portal</title>')
-        .replace(`<!--app-html-->`, await generate404Page(req.headers['hx-request'] === 'true'))
-      }catch(_){
-        return res.status(404).send('Page not found')
-      }
-    }
     vite?.ssrFixStacktrace(e)
     console.log(e.stack)
     res.status(500).end(e.stack)

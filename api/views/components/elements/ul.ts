@@ -8,7 +8,7 @@ interface UlistProps extends GlobalHtmlAttributes {
 const css:string = /*css*/`
     ul{
         display:flex;
-        flex-direction:column;
+        flex-direction:row;
         flex-grow:1;
     }
 `

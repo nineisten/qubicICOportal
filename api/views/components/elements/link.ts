@@ -21,9 +21,9 @@ export default function Link(props:LinkProps){
     .trim()
    return html`
         <style>${css}</style>
-        <Link ${attrStr}>
+        <a ${attrStr}>
         ${label}
-        </Link>
+        </a>
     `.trim()
 }
 const escape = (s:string)=>s.replace(/&/g,'&amp;').replace(/"/g,'&quot;')

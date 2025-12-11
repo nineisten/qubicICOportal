@@ -16,11 +16,11 @@ const css = /*css*/`
         text-transform:uppercase;
         width:100%;
         flex-grow:1;
+        padding:20pt;
     }
     .banner h1{
         font-size:3.5rem;
         font-weight:600;
-        margin:0;
         padding:10pt 20pt;
         border-radius: 5pt;
         box-sizing: content-box;

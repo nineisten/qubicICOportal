@@ -17,6 +17,7 @@ const css:string = /*css*/`
     .mainHeader{
         font-size:10pt;
         font-weight:600;
+        border-bottom:1pt solid var(--primary-color)
     }
 `
 //View template
@@ -44,19 +45,40 @@ export default function MainHeader(props:MainHeaderProps){
                                          content:/*html*/`
                                             <!--bgein list item-->
                                                 ${Link({
-                                                    label:'home',
-                                                    href:"#"
+                                                    label:'Home',
+                                                    'hx-get':"/",
+                                                    'hx-target':"#content_module",
+                                                    'hx-swap':'innerHtml',
+                                                    'hx-trigger':'click'
                                                 })}
                                             <!--end list item-->
-                                         `,
-                                        'id:':`nav_link_`,
-                                        'key':`nav_link_`,
-                                        'hx-get':``,
-                                        'hx-swap':'innerHTMl',
-                                        'hx-trigger':'click',
-                                        'hx-push-url':``,
-                                        'hx-target':`#content_module`,
-                                        'hx-location':``
+                                         `
+                                    })}
+                                    ${Li({
+                                         content:/*html*/`
+                                            <!--bgein list item-->
+                                                ${Link({
+                                                    label:'About',
+                                                    'hx-get':"/about",
+                                                    'hx-target':"#content_module",
+                                                    'hx-swap':'innerHtml',
+                                                    'hx-trigger':'click'
+                                                })}
+                                            <!--end list item-->
+                                         `
+                                    })}
+                                    ${Li({
+                                         content:/*html*/`
+                                            <!--bgein list item-->
+                                                ${Link({
+                                                    label:'Contact',
+                                                    'hx-get':"/contact",
+                                                    'hx-target':"#content_module",
+                                                    'hx-swap':'innerHtml',
+                                                    'hx-trigger':'click'
+                                                })}
+                                            <!--end list item-->
+                                         `
                                     })}
                                 <!--end unordered list-->
                                 `,

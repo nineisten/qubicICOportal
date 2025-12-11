@@ -10,6 +10,7 @@ const css:string = /*css*/`
         display:flex;
         flex-direction:column;
         flex-grow:1;
+        padding-bottom:10pt;
     }
 `
 //View template
