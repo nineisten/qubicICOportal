@@ -12,7 +12,7 @@
                 <!-- start html-->
                 ${l.link_name}
                 <!-- end html-->
-                `,
+                `,//begin attributes: key:value pairs.
                'id':`link_${i}`, 
                 //... more attributes here
                'hx-get':'/link/to/template',
