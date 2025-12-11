@@ -1,28 +1,27 @@
 # Routes
 **Simple, straight-forward**
 
-- Server routes: /portal - root 
-    - /api - client route
-    - /auth - private route for user Authentication
-    - /views - template distro
-        - /pages - page templates
-        - /mods - module templates
 - browser routes are hanldled with htmx like shown below
 - example request:
 
 ~~~typescript
     `${$links.map((i,l)=>/*html*/`
         ${li(`
-            ${link(l.url,/*html*/`
+            ${link({
+                content:/*html*/`
+                <!-- start html-->
                 ${l.link_name}
+                <!-- end html-->
                 `,
-                {tag:'id',val:`link_${i}`},
+               'id':`link_${i}`, 
                 //... more attributes here
-                {tag:'hx-get',val:'/portal/views/page/about'},
-                {tag:'hx-swap',val:'inner-html'},
-                {tag:'hx-trigger',val:'click'},
-                {tag:'hx-target','#main_content'},
-                {tag:'hx-push-url',val:'/portal/views/pages/about'}
+               'hx-get':'/link/to/template',
+               'hx-swap':'inner-html',
+               'hx-trigger':'click',
+               'hx-target','#main_content',
+               'hx-push-url':`${l.url}`
+            }
+                
             )}`
         )}`
     )}`
