@@ -14,7 +14,6 @@ const css = /*css*/`
         justify-content:center;
         gap:5pt;
         text-transform:uppercase;
-        width:100%;
         flex-grow:1;
         padding:20pt;
     }

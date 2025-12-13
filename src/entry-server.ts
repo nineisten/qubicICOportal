@@ -16,6 +16,7 @@ export function render(_url: string) {
         
             ${Main({
                 content:/*html*/`
+                  loading...
                     <!--main content loads here-->
                 `,
                 id:'content_module',
@@ -37,7 +38,7 @@ export function render(_url: string) {
             )}
 
       <!-- end app frame  -->
-    `,'hx-boost':true
+    `
   })}
     `
   return { html }

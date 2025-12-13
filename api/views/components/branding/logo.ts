@@ -3,6 +3,7 @@ const css = /*css*/`
   .logo{
     fill:currentColor;
     color:currentColor;
+    min-width:110pt;
   }
   
 `
@@ -17,7 +18,7 @@ function Logo(w:number){
         data-name="Layer 1" 
         xmlns="http://www.w3.org/2000/svg" 
         viewBox="0 0 1470.11 192.31">
-        <title>qip</title>
+        <title>QIP</title>
         <path d="M461.76,101.25h-18v25.28h18c12.72,0,17.89-4.73,17.89-12.86S474.18,101.25,461.76,101.25Z" fill="none"/>
         <path d="M872.91,66.22c-15.68,0-28.54,11.53-28.54,29.86s12.86,30.16,28.54,30.16,28.53-11.83,28.53-30.16S888.58,66.22,872.91,66.22Z" fill="none"/>
         <path d="M1102.2,66.22c-15.67,0-28.53,11.53-28.53,29.86s12.86,30.16,28.53,30.16,28.54-11.83,28.54-30.16S1117.87,66.22,1102.2,66.22Z" fill="none"/>
