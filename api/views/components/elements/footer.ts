@@ -16,8 +16,7 @@ const css = /*css*/`
 `
 
 //View template
-export default function Footer(copyright:{year:number,entity:string},props:FooterProps){
-    const {year,entity} = copyright
+export default function Footer(props:FooterProps){
     const {content,...attrs} = props
     const attrStr = Object.entries(attrs)
     .filter(([_, v]) => v != null)
@@ -26,10 +25,9 @@ export default function Footer(copyright:{year:number,entity:string},props:Foote
     .trim()
    return html`
         <style>${css}</style>
-        <Footer ${attrStr}>
+        <footer ${attrStr}>
         ${content}
-         &copy;${year} ${entity}
-        </Footer>
+        </footer>
     `
 }
 const escape = (s:string)=>s.replace(/&/g,'&amp;').replace(/"/g,'&quot;')

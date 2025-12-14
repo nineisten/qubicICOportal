@@ -6,11 +6,10 @@ import Button from "../components/elements/button.ts"
 import Nav from "../components/elements/nav.ts"
 import { lock } from "../components/svg/lock.ts"
 import type { GlobalHtmlAttributes} from "../types/html_attrs";
-import { html, HtmlSafeString } from "../types/safe_html";
+import { html} from "../types/safe_html";
 import Ulist from "../components/elements/ul.ts"
 
 interface MainHeaderProps extends GlobalHtmlAttributes {
-    content: string | HtmlSafeString
 }
 //Stylesheet
 const css:string = /*css*/`
@@ -22,7 +21,7 @@ const css:string = /*css*/`
 `
 //View template
 export default function MainHeader(props:MainHeaderProps){
-    const {content,...attrs} = props
+    const {...attrs} = props
    
     const attrStr = Object.entries(attrs)
     .filter(([_, v]) => v != null)
@@ -33,52 +32,52 @@ export default function MainHeader(props:MainHeaderProps){
         <style>${css}</style>
         ${Header({
             content:/*html*/`
-                    ${Logo(200)}
-                <!--start header-->
-                    ${Nav({
+            ${Logo(200)}
+            <!--start header-->
+            ${Nav({
+                content:/*html*/`
+                <!--start nav-->
+                ${Ulist({
+                    content:/*html*/`
+                    <!--start unordered list-->
+                    ${Li({
                         content:/*html*/`
-                            <!--start nav-->
-                            ${Ulist({
-                                content:/*html*/`
-                                <!--start unordered list-->
-                                    ${Li({
-                                         content:/*html*/`
-                                            <!--bgein list item-->
-                                                ${Link({
-                                                    label:'Home',
-                                                    'hx-get':"/",
-                                                    'hx-target':"#content_module",
-                                                    'hx-swap':'innerHtml',
-                                                    'hx-trigger':'click'
-                                                })}
-                                            <!--end list item-->
+                        <!--bgein list item-->
+                        ${Link({
+                            label:'Home',
+                            'hx-get':"/",
+                            'hx-target':"#content_module",
+                            'hx-swap':'innerHtml',
+                            'hx-trigger':'click'
+                            })}
+                        <!--end list item-->
                                          `
-                                    })}
-                                    ${Li({
-                                         content:/*html*/`
-                                            <!--bgein list item-->
-                                                ${Link({
-                                                    label:'About',
-                                                    'hx-get':"/about",
-                                                    'hx-target':"#content_module",
-                                                    'hx-swap':'innerHtml',
-                                                    'hx-trigger':'click'
-                                                })}
-                                            <!--end list item-->
-                                         `
-                                    })}
-                                    ${Li({
-                                         content:/*html*/`
-                                            <!--bgein list item-->
-                                                ${Link({
-                                                    label:'Contact',
-                                                    'hx-get':"/contact",
-                                                    'hx-target':"#content_module",
-                                                    'hx-swap':'innerHtml',
-                                                    'hx-trigger':'click'
-                                                })}
-                                            <!--end list item-->
-                                         `
+                })}
+                ${Li({
+                    content:/*html*/`
+                    <!--bgein list item-->
+                    ${Link({
+                        label:'About',
+                        'hx-get':"/about",
+                        'hx-target':"#content_module",
+                        'hx-swap':'innerHtml',
+                        'hx-trigger':'click'
+                    })}
+                     <!--end list item-->
+                    `
+                })}
+                ${Li({
+                        content:/*html*/`
+                        <!--bgein list item-->
+                            ${Link({
+                                label:'Contact',
+                                'hx-get':"/contact",
+                                'hx-target':"#content_module",
+                                'hx-swap':'innerHtml',
+                                'hx-trigger':'click'
+                            })}
+                        <!--end list item-->
+                        `
                                     })}
                                 <!--end unordered list-->
                                 `,
@@ -91,8 +90,10 @@ export default function MainHeader(props:MainHeaderProps){
                         class:'mainHeaderNav'
                     })}
                     ${Button({
-                        label:`${lock(9,9)} Wallet Connect`}
-                    )}
+                        label:`${lock(9,9)} Wallet Connect`,
+                        'hx-get': '/connect'
+                        
+                    })}
                 <!--end header-->
             `,
             id:'main_header',

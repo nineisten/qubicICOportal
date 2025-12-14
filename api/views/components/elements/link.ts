@@ -8,6 +8,7 @@ interface LinkProps extends GlobalHtmlAttributes {
 const css = /*css*/`
     a{          
         color:#fff;
+        cursor:pointer;
     }
 `
 
