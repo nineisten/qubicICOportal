@@ -11,7 +11,7 @@ export function render(_url: string) {
       ${Div({
         content:'',
         id:'top_header',
-        'hx-get':'/portal/views/mod/main-header',
+        'hx-get':'views/mod/main-header',
         'hx-swap':'outerHtml',
         'hx-target':'this',
         'hx-trigger':'load'
@@ -21,7 +21,7 @@ export function render(_url: string) {
         <!--main content loads here-->
         `,
         id:'content_module',
-        'hx-get':`portal/views/page/${tmplUrl}`,
+        'hx-get':`views/page/${tmplUrl}`,
         'hx-target':'#content_module',
         'hx-swap':'innerHTML',
         'hx-trigger':'load',
@@ -30,7 +30,7 @@ export function render(_url: string) {
       ${Div({
         content:'',
         id:'chaindata',
-        'hx-get':'/portal/views/mod/chaindata',
+        'hx-get':'views/mod/chaindata',
         'hx-swap':'outerHtml',
         'hx-trigger':'load',
         'hx-target':'this'
@@ -39,13 +39,13 @@ export function render(_url: string) {
         content:'',
         id:'main_footer',
         class:'main-footer',
-        'hx-get':'/portal/views/mod/main-footer',
+        'hx-get':'views/mod/main-footer',
         'hx-swap':'outerHtml',
         'hx-target':'this',
         'hx-trigger':'load'
       })} 
-      <!-- end app frame 
-    `
+      <!-- end app frame -->
+    `,
   })}
     `
   return { html }

@@ -30,7 +30,7 @@ export default function AppFrame(props:AppFrameProps){
             ${content}
         `,
         id:'app_frame',
-        class:'app_frame',
+        class:'app-frame',
         attrStr
     })}
 

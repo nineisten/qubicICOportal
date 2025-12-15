@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises'
 import express from 'express'
-import router from './api/router/index.ts'
-
+import viewsRouter from './api/router/views/viewRouter.ts'
+import apiRouter from './api/router/client/clientRouter.ts'
 
 // Constants
 const isProduction = process.env.NODE_ENV === 'production'
@@ -29,7 +29,8 @@ if (!isProduction) {
     appType: 'custom',
     base,
   })
-  app.use('/portal',router)
+  app.use('/views',viewsRouter)
+  app.use('/api',apiRouter)
   app.use(vite.middlewares)
 } else {
   const compression = (await import('compression')).default
@@ -46,9 +47,11 @@ app.use('*all', async (req, res,next) => {
     console.log(url)
 
     // Skip SSR for API requests
-    if (req.originalUrl.startsWith('/portal')) {
+    if (req.originalUrl.startsWith('/views')) {
     return next(); 
-  }
+    }else if(req.originalUrl.startsWith('/api')){
+      return next();
+    }
     /** @type {string} */
     let template
     /** @type {import('./src/entry-server.ts').render} */
