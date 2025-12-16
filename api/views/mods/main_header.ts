@@ -1,21 +1,44 @@
-import Logo from "../components/branding/logo.ts"
-import Link from "../components/elements/link.ts"
-import Li from "../components/elements/li.ts"
+import Logo from "../components/branding/logo"
+import Link from "../components/elements/link"
+import Li from "../components/elements/li"
 import Header from "../components/elements/header"
-import Button from "../components/elements/button.ts"
+import Button from "../components/elements/button"
 import Nav from "../components/elements/nav.ts"
 import { lock } from "../components/svg/lock.ts"
+import {unlock} from "../components/svg/unlock.ts"
 import type { GlobalHtmlAttributes} from "../types/html_attrs";
 import { html} from "../types/safe_html";
 import Ulist from "../components/elements/ul"
-import Hamburger from "../components/svg/hamburger.ts"
+import Hamburger from "../components/svg/hamburger"
+import Input from "../components/elements/input"
+import Label from "../components/elements/label"
+import Close from "../components/svg/close.ts"
 
 interface MainHeaderProps extends GlobalHtmlAttributes {
 }
 
 //Stylesheet
 const css:string = /*css*/`
+    #mobile_menu_toggle{
+        display:none;
+    }
+    .mobile-menu {
+        display:none;
+        flex-direction:column;
+        background:var(--bg-color),
+        padding:0 10pt;
+        gap: 5pt;
+        font-size:12pt;
+    }
+    
+   
+    .mobile-menu a{
+        display:block;
+        padding:10pt;
+        text-align:center;
+    }
     .mainHeader{
+        display:flex;
         padding:10pt 0;
         font-size:10pt;
         font-weight:600;
@@ -30,12 +53,33 @@ const css:string = /*css*/`
             .mobile{
             display:none
         }
+      
     }
 
     @media screen and (max-width:63em){
         .full{
             display:none;
         }
+        .mainHeader{
+            flex-direction:column;
+        }
+        #mobile_menu_toggle:checked ~ .mobile-menu{
+        display:flex;
+        }
+        .ham-icon {
+        display: block;
+    }
+    .x-icon {
+        display: none;
+    }
+
+    /* When menu open: hide hamburger, show X */
+    #mobile_menu_toggle:checked ~ .hamburger .ham-icon {
+        display: none;
+    }
+    #mobile_menu_toggle:checked ~ .hamburger .x-icon {
+        display: block;
+    }
     }
 `
 //View template
@@ -93,7 +137,7 @@ export default function MainHeader(props:MainHeaderProps){
                             'hx-get':"/contact",
                             'hx-target':"#content_module",
                             'hx-swap':'innerHtml',
-                                'hx-trigger':'click'
+                            'hx-trigger':'click'
                         })}
                         <!--end list item-->
                         `
@@ -108,21 +152,68 @@ export default function MainHeader(props:MainHeaderProps){
         id:'main_header_nav',
         class:'mainHeaderNav'
         })}
-        ${Button({
-            label:`${lock(9,9)} Wallet Connect`,
-            class:'full',
-            'hx-get': '/connect',
-            'hx-swap': ''
-        })}
+        ${ !wallet? Button({
+                    label:`${lock(9,9)} Connect`,
+                    'hx-get': '/connect'
+                }):unlock(15,15)
+
+            }
 
         <!-- responsive menu-->
-        ${Hamburger(20,{ 
-            class:'mobile hamburger',
-            'hx-get':'views/mods/menu',
-           'hx-target':'#app_frame',
-           'hx-swap':true,
-           'hx-trigger':'click'
-            })}
+        
+        ${Input({
+            content:'',
+            'type':"checkbox",
+            id:"mobile_menu_toggle"
+        })}
+        ${Label({
+            content:/*html*/`
+                ${Hamburger(20,{
+                    class:'ham-icon'
+                })}
+                ${Close(20,{
+                    class:'x-icon'
+                })}
+            `,
+            'for':"mobile_menu_toggle",
+             class:'mobile hamburger'
+        })}
+        
+
+         ${Nav({
+            content:/*html*/`
+                ${Link({
+                    label:'Home', 
+                    'hx-get':"/", 
+                    'hx-target':"#content_module", 
+                    'hx-swap':'innerHTML', 
+                    'hx-trigger':'click'
+                })}
+                ${Link({
+                    label:'About', 
+                    'hx-get':"/about", 
+                    'hx-target':"#content_module", 
+                    'hx-swap':'innerHTML', 
+                    'hx-trigger':'click'
+                    })}
+                ${Link({
+                    label:'Contact', 
+                    'hx-get':"/contact", 
+                    'hx-target':"#content_module", 
+                    'hx-swap':'innerHTML', 
+                    'hx-trigger':'click'
+                })}
+
+                ${ !wallet? Button({
+                    label:`${lock(9,9)} Connect`,
+                    'hx-get': '/connect'
+                }):unlock(15,15)
+
+            }
+            `,
+            class:'mobile mobile-menu'
+
+         })}
         <!-- end responsive menu-->
 
                 <!--end header-->

@@ -2,11 +2,13 @@ import { Router } from "express";
 import MainHeader from "../../../views/mods/main_header"
 import Footer from "../../../views/components/elements/footer"
 import Chaindata from "../../../views/mods/chaindata"
+import Menu from "../../../views/pages/menu";
 
 const modRouter = Router();
-modRouter.get("/main-header", (req, res) => {
+
+modRouter.get("/main-header", async(req, res) => {
   try {
-    res.status(200).send(MainHeader({}));
+    res.status(200).send(MainHeader({wallet:true}));
     console.log("Main Header component served")
   } catch (err) {
     res.status(500).send({msg:"Error loading Main Header component",err});
