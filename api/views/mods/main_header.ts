@@ -4,8 +4,8 @@ import Li from "../components/elements/li"
 import Header from "../components/elements/header"
 import Button from "../components/elements/button"
 import Nav from "../components/elements/nav.ts"
-import { lock } from "../components/svg/lock.ts"
-import {unlock} from "../components/svg/unlock.ts"
+import Lock  from "../components/svg/lock.ts"
+import Unlock from "../components/svg/unlock.ts"
 import type { GlobalHtmlAttributes} from "../types/html_attrs";
 import { html} from "../types/safe_html";
 import Ulist from "../components/elements/ul"
@@ -26,7 +26,7 @@ const css:string = /*css*/`
         display:none;
         flex-direction:column;
         background:var(--bg-color),
-        padding:0 10pt;
+        padding: 10pt 20pt ;
         gap: 5pt;
         font-size:12pt;
     }
@@ -153,9 +153,9 @@ export default function MainHeader(props:MainHeaderProps){
         class:'mainHeaderNav'
         })}
         ${ !wallet? Button({
-                    label:`${lock(9,9)} Connect`,
+                    label:`${Lock(9,{})} Connect`,
                     'hx-get': '/connect'
-                }):unlock(15,15)
+                }):Unlock(15,{class:'full'})
 
             }
 
@@ -182,33 +182,34 @@ export default function MainHeader(props:MainHeaderProps){
 
          ${Nav({
             content:/*html*/`
-                ${Link({
-                    label:'Home', 
-                    'hx-get':"/", 
-                    'hx-target':"#content_module", 
-                    'hx-swap':'innerHTML', 
-                    'hx-trigger':'click'
+            ${Link({
+                label:'Home', 
+                'hx-get':"/", 
+                'hx-target':"#content_module", 
+                'hx-swap':'innerHTML', 
+                'hx-trigger':'click'
+            })}
+            ${Link({
+                label:'About', 
+                'hx-get':"/about", 
+                'hx-target':"#content_module", 
+                'hx-swap':'innerHTML', 
+                'hx-trigger':'click'
                 })}
-                ${Link({
-                    label:'About', 
-                    'hx-get':"/about", 
-                    'hx-target':"#content_module", 
-                    'hx-swap':'innerHTML', 
-                    'hx-trigger':'click'
-                    })}
-                ${Link({
-                    label:'Contact', 
-                    'hx-get':"/contact", 
-                    'hx-target':"#content_module", 
-                    'hx-swap':'innerHTML', 
-                    'hx-trigger':'click'
-                })}
-
-                ${ !wallet? Button({
-                    label:`${lock(9,9)} Connect`,
-                    'hx-get': '/connect'
-                }):unlock(15,15)
-
+            ${Link({
+                label:'Contact', 
+                'hx-get':"/contact", 
+                'hx-target':"#content_module", 
+                'hx-swap':'innerHTML', 
+                'hx-trigger':'click'
+            })}
+            ${ 
+                !wallet? Button({
+                label:`${Lock(9,{})} Connect`,
+                'hx-get': '/connect'
+                }):Unlock(15,{
+                    class:'mobile'
+                })
             }
             `,
             class:'mobile mobile-menu'

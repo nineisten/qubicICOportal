@@ -1,8 +1,30 @@
-export const lock = (h:number,w:number)=>/*html*/`
-    <svg 
+import type { GlobalHtmlAttributes} from "../../types/html_attrs";
+import { html, HtmlSafeString } from "../../types/safe_html";
+interface LockProps extends GlobalHtmlAttributes{}
+
+const css = /*css*/`
+    .lock{
+        cursor: pointer;
+    }
+`
+interface LockProps extends GlobalHtmlAttributes {
+}
+
+
+//View template
+export default function Lock(w:number,props:LockProps){
+    const {...attrs} = props
+    const attrStr = Object.entries(attrs)
+    .filter(([_, v]) => v != null)
+    .map(([k, v]) => (v === true ? k : `${k}="${escape(String(v))}"`))
+    .join(' ')
+    .trim()
+   return html`
+        <style>${css}</style>
+        <svg
+        ${attrStr} 
         id="lock"
-        width="${h?h:15}pt" 
-        height="${w?w:15}pt"  
+        width="${w?w:15}pt" 
         viewBox="0 0 15 15" 
         fill="none" 
         xmlns="http://www.w3.org/2000/svg">
@@ -11,5 +33,8 @@ export const lock = (h:number,w:number)=>/*html*/`
             fill="currentColor"
         />
         </svg>
+    `.trim()
+}
+const escape = (s:string)=>s.replace(/&/g,'&amp;').replace(/"/g,'&quot;')
 
-`
+
