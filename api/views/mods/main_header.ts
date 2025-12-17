@@ -30,15 +30,18 @@ const css:string = /*css*/`
         gap: 5pt;
         font-size:12pt;
     }
-    
-   
     .mobile-menu a{
         display:block;
         padding:10pt;
         text-align:center;
     }
     .mainHeader{
-        display:flex;
+        display: flex;
+        flex-direction:row;
+        justify-content:space-around;
+        align-items:center;
+        color:white;
+        width:100%;
         padding:10pt 0;
         font-size:10pt;
         font-weight:600;
@@ -152,12 +155,14 @@ export default function MainHeader(props:MainHeaderProps){
         id:'main_header_nav',
         class:'mainHeaderNav'
         })}
-        ${ !wallet? Button({
-                    label:`${Lock(9,{})} Connect`,
-                    'hx-get': '/connect'
-                }):Unlock(15,{class:'full'})
-
-            }
+        ${ 
+        !wallet? 
+        Button({
+            label:`${Lock(9,{})} Connect`,
+            'hx-get': '/connect'
+        }):
+        Unlock(15,{class:'full'})
+        }
 
         <!-- responsive menu-->
         

@@ -7,12 +7,7 @@ interface HeaderProps extends GlobalHtmlAttributes {
 
 const css = /*css*/`
   header{
-    display: flex;
-    flex-direction:row;
-    justify-content:space-around;
-    align-items:center;
-    color:white;
-    width:100%;
+    
   }
 `
 //View template

@@ -2,13 +2,18 @@ import { Router } from "express";
 import MainHeader from "../../../views/mods/main_header"
 import Footer from "../../../views/components/elements/footer"
 import Chaindata from "../../../views/mods/chaindata"
+import WalletCheck from "../../../middleware/walletCheck";
 
 const modRouter = Router();
 
-modRouter.get("/main-header", async(req, res) => {
+modRouter.get("/main-header",WalletCheck, (req, res) => {
   try {
-    res.status(200).send(MainHeader({wallet:true}));
-    console.log("Main Header component served")
+    if (!req.publicKey){
+      res.status(200).send(MainHeader({}))
+      return
+    }
+    res.status(200).send(MainHeader({wallet:req.publicKey}));
+    return
   } catch (err) {
     res.status(500).send({msg:"Error loading Main Header component",err});
   }
@@ -16,7 +21,7 @@ modRouter.get("/main-header", async(req, res) => {
 modRouter.get("/chaindata", (req, res) => {
   try {
     res.status(200).send(Chaindata());
-    console.log("Chaindata component served")
+    return
   } catch (err) {
     res.status(500).send({msg:"Error loading Chaindata component",err});
   }
@@ -28,7 +33,7 @@ modRouter.get("/main-footer", (req, res) => {
         content:/*html*/`
           &copy; 2025 Qubic Ico
         `,id:'main_footer'}));
-    console.log("Main footer component served")
+    return
   } catch (err) {
     res.status(500).send({msg:"Error loading Main Footer component",err});
   }
