@@ -69,10 +69,6 @@ app.use('*all', async (req, res,next) => {
     const rendered = await render(url, {
       isHtmx: req.headers['hx-request'] === 'true'
     })
-    if (rendered.notFound){
-      console.log(rendered, 'not-found')
-      res.status(404).send('Ooops cant find it')
-    }
 
     const html = template
       .replace(`<!--app-head-->`, rendered.head ?? '')
@@ -85,6 +81,7 @@ app.use('*all', async (req, res,next) => {
     res.status(500).end(e.stack)
   }
 })
+
 // Start http server
 app.listen(port, () => {
   console.log(`Server started at http://localhost:${port}`)

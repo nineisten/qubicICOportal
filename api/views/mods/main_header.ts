@@ -159,7 +159,8 @@ export default function MainHeader(props:MainHeaderProps){
         !wallet? 
         Button({
             label:`${Lock(9,{})} Connect`,
-            'hx-get': '/connect'
+            'hx-get': '/connect',
+            class:'full'
         }):
         Unlock(15,{class:'full'})
         }

@@ -2,8 +2,6 @@ import { NextFunction,Response, Request,Router } from "express";
 import privateRouter from "../router/private/privateRouter";
 import pageRouter from "../router/views/pages/pageRouter";
 
-
-
 const routerSwitch = Router()
 
 routerSwitch.use((req:Request,res:Response,next:NextFunction)=>{
@@ -16,7 +14,6 @@ routerSwitch.use((req:Request,res:Response,next:NextFunction)=>{
         res.status(500).send(err)
     }
 })
-routerSwitch.use(privateRouter)
-routerSwitch.use(pageRouter)
+routerSwitch.use(privateRouter)//triggers if wallet is connected
 
 export default routerSwitch;
