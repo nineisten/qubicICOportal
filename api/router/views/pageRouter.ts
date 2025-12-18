@@ -1,8 +1,8 @@
 import { Router } from "express";
-import Home from "../../../views/pages/index.ts";
-import About from "../../../views/pages/About.ts";
-import Contact from "../../../views/pages/Contact.ts";
-import pageNotFound from "../../../views/pages/pagenotfound.ts";
+import Home from "../../views/pages/index.ts";
+import About from "../../views/pages/About.ts";
+import Contact from "../../views/pages/Contact.ts";
+import pageNotFound from "../../views/pages/pagenotfound.ts";
 
 const pageRouter = Router();
 

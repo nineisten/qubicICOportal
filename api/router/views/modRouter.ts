@@ -1,8 +1,8 @@
 import { Router } from "express";
-import MainHeader from "../../../views/mods/main_header"
-import Footer from "../../../views/components/elements/footer"
-import Chaindata from "../../../views/mods/chaindata"
-import WalletCheck from "../../../middleware/walletCheck";
+import MainHeader from "../../views/mods/main_header"
+import Footer from "../../views/components/elements/footer"
+import Chaindata from "../../views/mods/chaindata"
+import WalletCheck from "../../middleware/walletCheck";
 
 const modRouter = Router();
 

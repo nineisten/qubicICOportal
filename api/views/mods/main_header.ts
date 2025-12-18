@@ -159,7 +159,10 @@ export default function MainHeader(props:MainHeaderProps){
         !wallet? 
         Button({
             label:`${Lock(9,{})} Connect`,
-            'hx-get': '/connect',
+             'hx-get':"/connect", 
+            'hx-target':"#content_module", 
+            'hx-swap':'innerHTML', 
+            'hx-trigger':'click',
             class:'full'
         }):
         Unlock(15,{class:'full'})
@@ -212,7 +215,10 @@ export default function MainHeader(props:MainHeaderProps){
             ${ 
                 !wallet? Button({
                 label:`${Lock(9,{})} Connect`,
-                'hx-get': '/connect'
+                'hx-get':"/connect", 
+                'hx-target':"#content_module", 
+                'hx-swap':'innerHTML', 
+                'hx-trigger':'click'
                 }):Unlock(15,{
                     class:'mobile'
                 })
