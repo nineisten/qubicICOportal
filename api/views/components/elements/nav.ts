@@ -7,10 +7,10 @@ interface NavProps extends GlobalHtmlAttributes {
 
 const css =/*css*/`
     nav {
-        display:flex;
+        /* display:flex;
         align-items:center;
         justify-content: center;
-        gap:10pt;
+        gap:10pt; */
     }
     nav a{
         font-size:9pt;

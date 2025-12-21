@@ -2,12 +2,13 @@ import fs from 'node:fs/promises'
 import express from 'express'
 import viewsRouter from './api/router/views/viewRouter.ts'
 import apiRouter from './api/router/client/clientRouter.ts'
+import session from 'express-session';
 
 // Constants
 const isProduction = process.env.NODE_ENV === 'production'
 const port = process.env.PORT || 5173
 const base = process.env.BASE || '/'
-
+const secretKey = process.env.SECRET_KEY
 // Cached production assets
 const templateHtml = isProduction
   ? await fs.readFile('./dist/client/index.html', 'utf-8')
@@ -19,6 +20,12 @@ app.use((req, res, next) => {
     res.locals.useLayout = req.headers["hx-request"] !== "true";
     next();
 })
+app.use(session({
+    secret:secretKey||'DEFAULT_SECRET_KEY',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure:isProduction?true:false } // Set to true if using HTTPS
+}));  
 // Add Vite or respective production middlewares
 /** @type {import('vite').ViteDevServer | undefined} */
 let vite

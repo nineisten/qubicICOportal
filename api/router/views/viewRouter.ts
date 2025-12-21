@@ -1,8 +1,8 @@
 import { Router } from "express";
-import modRouter from "./mods/modRouter.ts";
+import modRouter from "./modRouter.ts";
 import WalletCheck from "../../middleware/walletCheck.ts";
 import routerSwitch from "../../middleware/routerSwitch.ts";
-import pageRouter from "./pages/pageRouter.ts";
+import pageRouter from "./pageRouter.ts";
 
 const viewsRouter = Router();
 viewsRouter.use("/mod", modRouter)

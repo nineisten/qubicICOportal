@@ -1,8 +1,8 @@
 import AppFrame from '../api/views/mods/app_frame'
 import Main from '../api/views/components/elements/main'
 import Div from '../api/views/components/elements/div'
-export function render(_url: string) {
- const tmplUrl =_url===''?'home':_url.toLowerCase()
+export async function render(_url: string) {
+ const tmplUrl =_url===''?'home': await _url.toLowerCase()
   const html = /*html*/`
     
     ${AppFrame({
@@ -12,7 +12,7 @@ export function render(_url: string) {
         content:'',
         id:'top_header',
         'hx-get':'views/mod/main-header',
-        'hx-swap':'outerHtml',
+        'hx-oob-swap':'true',
         'hx-target':'this',
         'hx-trigger':'load'
       })}
@@ -21,11 +21,13 @@ export function render(_url: string) {
         <!--main content loads here-->
         `,
         id:'content_module',
+        class:'main_columns',
         'hx-get':`views/page/${tmplUrl}`,
         'hx-target':'#content_module',
         'hx-swap':'innerHTML',
         'hx-trigger':'load',
         'hx-push-url':`${tmplUrl==='home'?'/':tmplUrl}`,
+
       })}
       ${Div({
         content:'',

@@ -15,7 +15,6 @@ export type StandardAttributes = {
 } & {
   [key: `aria-${string}`]: string | undefined
 } &{
-
 }
 
 export type CardAttributes = {

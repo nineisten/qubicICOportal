@@ -5,6 +5,7 @@ declare global{
        export interface Request{
            publicKey?:string;
            walletExists?:boolean
+           session?:{publickey?:string} 
         }
     }
 }

@@ -86,7 +86,7 @@ const css:string = /*css*/`
     }
 `
 //View template
-export default function MainHeader(props:MainHeaderProps){
+function MainHeader (props:MainHeaderProps){
     const {wallet,...attrs} = props
    
     const attrStr = Object.entries(attrs)
@@ -165,7 +165,13 @@ export default function MainHeader(props:MainHeaderProps){
             'hx-trigger':'click',
             class:'full'
         }):
-        Unlock(15,{class:'full'})
+        Unlock(15,{
+            class:'full',
+            'hx-get':"/disconnect", 
+            'hx-target':"#content_module", 
+            'hx-swap':'innerHTML', 
+            'hx-trigger':'click',
+        })
         }
 
         <!-- responsive menu-->
@@ -241,5 +247,5 @@ export default function MainHeader(props:MainHeaderProps){
 const escape = (s:string)=>s.replace(/&/g,'&amp;').replace(/"/g,'&quot;')
 
 
-
+export default MainHeader;
                         

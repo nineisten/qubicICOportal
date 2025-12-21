@@ -1,25 +1,22 @@
-import type { GlobalHtmlAttributes} from "../../types/html_attrs";
-import { html, HtmlSafeString } from "../../types/safe_html";
+import Div from "../components/elements/div.ts";
+import type { GlobalHtmlAttributes} from "../types/html_attrs";
+import { html, HtmlSafeString } from "../types/safe_html";
 
-interface MainProps extends GlobalHtmlAttributes {
+
+interface DashFrameProps extends GlobalHtmlAttributes {
     content: string | HtmlSafeString
 }
 //Stylesheet
 const css:string = /*css*/`
-    main{
+    .dash_frame{
         display:flex;
-        flex-grow:1;
-        padding-bottom:10pt;
-    }
-    .main_columns{
-        flex-direction:column;
-    }
-    .main_rows{
         flex-direction:row;
+        flex-grow:1;
+        background:black;
     }
 `
 //View template
-export default function Main(props:MainProps){
+export default function DashFrame(props:DashFrameProps){
     const {content,...attrs} = props
    
     const attrStr = Object.entries(attrs)
@@ -29,10 +26,14 @@ export default function Main(props:MainProps){
     .trim()
    return html`
         <style>${css}</style>
-        <main ${attrStr}>
-        ${content}
-        </main>
+         ${Div({
+        content:/*html*/`
+            ${content}
+        `,
+        id:'dash_frame',
+        attrStr
+    })}
+
     `
-    .trim()
 }
 const escape = (s:string)=>s.replace(/&/g,'&amp;').replace(/"/g,'&quot;')

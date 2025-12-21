@@ -21,5 +21,5 @@
     "noUncheckedSideEffectImports": true
   },
   "include": ["src"],
-  "typeRoots": ["./@types", "./node_modules/@types"]
+  "typeRoots": ["@types","./api/@types", "./node_modules/@types"]
 }

@@ -3,6 +3,8 @@ import Home from "../../views/pages/index.ts";
 import About from "../../views/pages/About.ts";
 import Contact from "../../views/pages/Contact.ts";
 import pageNotFound from "../../views/pages/pagenotfound.ts";
+import Connect from "../../views/pages/connect.ts";
+import Disconnect from "../../views/pages/disconnect.ts";
 
 const pageRouter = Router();
 
@@ -35,11 +37,12 @@ pageRouter.get('/contact',(req,res)=>
 }) 
 pageRouter.get('/connect',(req,res)=>{
   try {
-    res.status(200).send('Connect')
+    res.status(200).send(Connect())
   } catch (err) {
     res.send(500).send({msg:"Error loading Home page",err})
   }
 })
+
 pageRouter.get('*all',(req,res)=>
 {
     try{

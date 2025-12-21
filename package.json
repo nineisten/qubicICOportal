@@ -13,6 +13,7 @@
   "dependencies": {
     "compression": "^1.8.1",
     "express": "^5.1.0",
+    "express-session": "^1.18.2",
     "htmx-ext-preload": "^2.1.2",
     "htmx-ext-sse": "^2.2.4",
     "htmx.org": "^2.0.8",
