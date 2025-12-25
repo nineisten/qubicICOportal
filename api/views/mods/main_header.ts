@@ -102,7 +102,10 @@ function MainHeader (props:MainHeaderProps){
         <style>${css}</style>
         ${Header({
             content:/*html*/`
-            ${Logo(200)}
+            ${Link({
+                label:Logo(200),
+                href:'/',
+            })}
             <!--start header-->
             ${Nav({
                 content:/*html*/`
@@ -110,19 +113,6 @@ function MainHeader (props:MainHeaderProps){
                 ${Ulist({
                     content:/*html*/`
                     <!--start unordered list-->
-                    ${Li({
-                        content:/*html*/`
-                        <!--bgein list item-->
-                        ${Link({
-                            label:'Home',
-                            'hx-get':"/",
-                            'hx-target':"#content_module",
-                            'hx-swap':'innerHtml',
-                            'hx-trigger':'click'
-                            })}
-                        <!--end list item-->
-                                         `
-                    })}
                     ${Li({
                         content:/*html*/`
                     <!--bgein list item-->

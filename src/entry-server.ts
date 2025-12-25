@@ -12,15 +12,17 @@ const css = /*css*/`
     flex-grow:1;
     min-width:100%;
   }
+  @media screen and (max-width:63em){
+    .main-wrapper{
+      flex-direction:column;
+    }
+  }
 `
 export async function render(_url: string,context:{publicKey:string|null; isHtmx?:boolean}) {
   const {publicKey} = context
 
   const tmplUrl=  _url===''?'home':_url.toLowerCase()
   const clientUrl = _url===''|| _url==='home'?'/':_url.toLowerCase()
-
-
-  console.log(clientUrl)
 
   const html = /*html*/`   
     ${AppFrame({

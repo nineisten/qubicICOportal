@@ -9,12 +9,16 @@ interface CardProps extends GlobalHtmlAttributes {
 }
 
 const css = /*css*/`
+    .shop_card{
+        max-width: 20rem;
+    }
     .card{
+        max-width:50dvw;
+        max-height:50dvh;
         display:flex;
         flex-grow:1;
         flex-direction:column;
         gap:10pt;
-        min-width:min-content;
         border-radius:10pt;
         overflow:hidden;
         border:1pt solid var(--primary-color)
@@ -37,7 +41,6 @@ const css = /*css*/`
         text-align:center;
         flex-grow:1;
         
-
     }
     .card_body{
         h1,h2,h3,h4,h5,h6{

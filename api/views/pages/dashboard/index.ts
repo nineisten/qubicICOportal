@@ -71,8 +71,8 @@ function Home(){
                       
                             ${Button({
                                 label:'View ICO',
-                                'hx-get':'/ICO',
-                                'hx-target':'#dashboard_content',
+                                'hx-get':'views/page/ICO',
+                                'hx-target':'#content_module',
                                 'hx-swap':'innerHTML',
                                 'hx-trigger':'click'
                             })}
@@ -97,8 +97,8 @@ function Home(){
                       
                             ${Button({
                                 label:'View ICO',
-                                'hx-get':'/ICO',
-                                'hx-target':'#dashboard_content',
+                                'hx-get':'views/page/ICO',
+                                'hx-target':'#content_module',
                                 'hx-swap':'innerHTML',
                                 'hx-trigger':'click'
                             })}
