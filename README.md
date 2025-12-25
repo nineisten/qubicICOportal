@@ -1,3 +1,9 @@
+##run commands
+```
+pnpm install
+pnpm run dev
+```
+
 ## **Proposal to include QIP Smart Contract**
 
 **Proposal**  
