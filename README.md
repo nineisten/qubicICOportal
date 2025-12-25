@@ -1,5 +1,6 @@
 ##run commands
 ```
+cd qubicICOportal
 pnpm install
 pnpm run dev
 ```
