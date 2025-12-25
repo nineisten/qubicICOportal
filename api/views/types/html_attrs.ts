@@ -9,6 +9,7 @@ export type StandardAttributes = {
     isLoggedIn?:boolean
     href?:string
     src?:string
+    url?:string
 
 }& {
   [key: `data-${string}`]: string | undefined
@@ -22,7 +23,10 @@ export type CardAttributes = {
   card_body?:string,
   card_footer?:string,
 }
-
+export type routingAttributes = {
+  clientUrl?:string,
+  templUrl?:string
+}
 export type HtmxAttributes={
     [key: `hx=${string}`]: string | boolean | undefined
 }

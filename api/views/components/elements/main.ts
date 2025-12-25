@@ -9,10 +9,10 @@ const css:string = /*css*/`
     main{
         display:flex;
         flex-grow:1;
-        padding-bottom:10pt;
     }
     .main_columns{
         flex-direction:column;
+        justify-content:center;
     }
     .main_rows{
         flex-direction:row;

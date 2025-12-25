@@ -10,12 +10,14 @@ function pageNotFound(){
     <style>${css}</style>
     ${Section({
         content:/*html*/`
+        </script>
             <!-- start section-->
             <h1>Page Not Found </h1>
             <h4>This page has been moved, or does not exist.</h4>
            
             <!-- end section-->
-        `,class:'flex_columns'
+        `,
+        class:'flex_columns'
     })}
     `
     return html

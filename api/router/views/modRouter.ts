@@ -4,7 +4,10 @@ import Footer from "../../views/components/elements/footer"
 import Chaindata from "../../views/mods/chaindata"
 import WalletCheck from "../../middleware/walletCheck";
 import Div from "../../views/components/elements/div";
-import {render} from '../../../src/entry-server'
+import Sidebar from "../../views/mods/sidebar";
+import DashFrame from "../../views/mods/dash_frame";
+import Main from "../../views/components/elements/main";
+import MainDash from "../../views/mods/main_dash";
 
 const modRouter = Router();
 
@@ -20,7 +23,9 @@ modRouter.get("/main-header",WalletCheck, (req, res) => {
     res.status(500).send({msg:"Error loading Main Header component",err});
   }
 });
+
 modRouter.get("/chaindata", (req, res) => {
+
   try {
     res.status(200).send(Chaindata());
     return
@@ -28,13 +33,32 @@ modRouter.get("/chaindata", (req, res) => {
     res.status(500).send({msg:"Error loading Chaindata component",err});
   }
 });
+modRouter.get("/main-dash", (req, res) => {
+
+  try {
+    res.status(200).send(MainDash({content:''}));
+    return
+  } catch (err) {
+    res.status(500).send({msg:"Error loading Main-dash component",err});
+  }
+});
+
 modRouter.get("/main-footer", (req, res) => {
   try {
     res.status(200).send(Footer(
         {
         content:/*html*/`
-          &copy; 2025 Qubic Ico
+          &copy; 2025 Qubic ICO
         `,id:'main_footer'}));
+    return
+  } catch (err) {
+    res.status(500).send({msg:"Error loading Main Footer component",err});
+  }
+});
+
+modRouter.get("/sidebar", (req, res) => {
+  try {
+    res.status(200).send(Sidebar());
     return
   } catch (err) {
     res.status(500).send({msg:"Error loading Main Footer component",err});
@@ -72,6 +96,7 @@ modRouter.post("/wallet-connect",(req,res)=>{
     res.status(500).send({msg:"Error connecting wallet",err});
   }
 });
+
 modRouter.post("/disconnect",(req,res)=>{
   try {
     const fauxPublicKey = '';

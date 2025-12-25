@@ -5,7 +5,7 @@ export default async function WalletCheck (req:Request,res:Response,next:NextFun
     try{
         let keyFromSession = req.session?.publickey
         if (keyFromSession && /^[A-Z]{60}$/.test(keyFromSession)){
-            req.publicKey=keyFromSession
+            req.publicKey=await keyFromSession
          }
          next()
     }catch(err){

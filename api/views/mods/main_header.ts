@@ -29,6 +29,7 @@ const css:string = /*css*/`
         padding: 10pt 20pt ;
         gap: 5pt;
         font-size:12pt;
+        align-items:center;
     }
     .mobile-menu a{
         display:block;
@@ -50,6 +51,9 @@ const css:string = /*css*/`
     }
     .hamburger{
         padding:10pt 0; 
+    }
+    .unlock{
+        cursor: pointer;
     }
 
     @media screen and (min-width:63em){
@@ -166,7 +170,7 @@ function MainHeader (props:MainHeaderProps){
             class:'full'
         }):
         Unlock(15,{
-            class:'full',
+            class:'full unlock',
             'hx-get':"/disconnect", 
             'hx-target':"#content_module", 
             'hx-swap':'innerHTML', 
@@ -218,17 +222,24 @@ function MainHeader (props:MainHeaderProps){
                 'hx-swap':'innerHTML', 
                 'hx-trigger':'click'
             })}
-            ${ 
-                !wallet? Button({
+        ${ 
+            !wallet? 
+            Button({
                 label:`${Lock(9,{})} Connect`,
                 'hx-get':"/connect", 
                 'hx-target':"#content_module", 
                 'hx-swap':'innerHTML', 
-                'hx-trigger':'click'
-                }):Unlock(15,{
-                    class:'mobile'
-                })
-            }
+                'hx-trigger':'click',
+                class:',mobile'
+            }):
+            Unlock(15,{
+                class:'mobile unlock',
+                'hx-get':"/disconnect", 
+                'hx-target':"#content_module", 
+                'hx-swap':'innerHTML', 
+                'hx-trigger':'click',
+            })
+        }
             `,
             class:'mobile mobile-menu'
 

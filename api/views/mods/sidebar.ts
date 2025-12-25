@@ -12,6 +12,7 @@ const css = /*css*/`
         display:flex;
         flex-direction:column;
         max-width:max-content;
+        align-items:center;
     }
     .sidebar nav{
         display:flex;
@@ -19,6 +20,7 @@ const css = /*css*/`
         width:100%;
         align-items:center;
         justify-content:start;
+        
         flex-grow:1;
         padding:0;
         margin:0;   
@@ -43,6 +45,41 @@ const css = /*css*/`
         text-transform:uppercase;
         margin:0;
         padding:10pt 20pt;
+        min-width: max-content;
+    }
+    
+     @media screen and (max-width:63em){
+        
+        .sidebar{
+            flex-direction:row;  
+            max-width:100%;
+            border-right:none;
+            border-bottom:1pt solid var(--primary-color);           
+            max-height:max-content ;
+            align-items:center;
+            justify-content:center;
+
+            ul{
+                flex-direction:row;
+                border-left:1pt solid var(--primary-color);
+                border-right:none;
+                border-bottom:none;
+                padding:0;
+                li{
+                    border-right:1pt solid var(--primary-color);
+                    border-bottom:none;
+                }
+            }
+            nav{
+                width:100%;
+                flex-direction:row;
+                align-items:center;
+                justify-content:center;
+                height:min-content;
+                padding:0;
+
+            }
+        }
         
     }
 `

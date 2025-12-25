@@ -1,6 +1,5 @@
 import { NextFunction,Response, Request,Router } from "express";
 import privateRouter from "../router/private/privateRouter";
-import pageRouter from "../router/views/pages/pageRouter";
 
 const routerSwitch = Router()
 

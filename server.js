@@ -20,12 +20,14 @@ app.use((req, res, next) => {
     res.locals.useLayout = req.headers["hx-request"] !== "true";
     next();
 })
+
 app.use(session({
     secret:secretKey||'DEFAULT_SECRET_KEY',
     resave: false,
     saveUninitialized: true,
     cookie: { secure:isProduction?true:false } // Set to true if using HTTPS
-}));  
+}));
+
 // Add Vite or respective production middlewares
 /** @type {import('vite').ViteDevServer | undefined} */
 let vite
@@ -36,8 +38,6 @@ if (!isProduction) {
     appType: 'custom',
     base,
   })
-  app.use('/views',viewsRouter)
-  app.use('/api',apiRouter)
   app.use(vite.middlewares)
 } else {
   const compression = (await import('compression')).default
@@ -45,15 +45,15 @@ if (!isProduction) {
   app.use(compression())
   app.use(base, sirv('./dist/client', { extensions: [] }))
 }
-
+app.use('/views',viewsRouter)
+app.use('/api',apiRouter)
 // Serve HTML
 app.use('*all', async (req, res,next) => {
   try {
     //swap the base url
     const url = req.originalUrl.replace(base, '')
-    console.log(url)
 
-    // Skip SSR for API requests
+    // Skip SSR for API requests and view templates
     if (req.originalUrl.startsWith('/views')) {
     return next(); 
     }else if(req.originalUrl.startsWith('/api')){
@@ -72,16 +72,18 @@ app.use('*all', async (req, res,next) => {
       template = templateHtml
       render = (await import('./dist/server/entry-server.js')).render
     }
-
-    const rendered = await render(url, {
-      isHtmx: req.headers['hx-request'] === 'true'
-    })
-
+    const publicKey = req.session?.publickey || null;
+    const context = {
+      isHtmx: req.headers['hx-request'] === 'true',
+      publicKey, // <-- this is the key part
+      // You can pass more if useful, e.g. userId, isAuthenticated: !!publicKey, etc.
+    };
+    const rendered = await render(url,context)
     const html = template
       .replace(`<!--app-head-->`, rendered.head ?? '')
       .replace(`<!--app-html-->`, rendered.html ?? '')
 
-    res.status(200).set({ 'Content-Type': 'text/html' }).send(html)
+    res.status(200).set({ 'Content-Type': 'text/html' }).end(html)
   } catch (e) {
     vite?.ssrFixStacktrace(e)
     console.log(e.stack)
