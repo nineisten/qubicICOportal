@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Qubic ICO Portal</title>
+     
+    <!--app-head-->
+  </head>
+  <body hx-ext="preload">
+    <!-- If you're editing this file you're doing it wrong,-->
+    <div id="app" ><!--app-html--></div>
+     <!-- Do not touch.-->
+   <script type="module" src="/src/entry-client.ts" ></script>
+  </body>
+  
+</html>
