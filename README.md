@@ -1,21 +1,8 @@
-##run commands
-```
-cd qubicICOportal/
-pnpm install
-pnpm run dev
-```
 
-## **Proposal to include QIP Smart Contract**
 
-**Proposal**  
-Allow QIP Smart Contract to be deployed on Qubic.
+## **About the QIP Smart Contract**
 
-**Available Options**
 
-- **Option 1:** yes allow  
-- **Option 0:** Don’t Allow.
-
----
 
 **What is QIP?**
 
@@ -567,14 +554,3 @@ public:
 
 ---
 
-**Why deploy QIP on Qubic?**
-
-- Enables **real token sales** on a feeless, instant network  
-- Reduces **project launch friction**  
-- Increases **ecosystem activity and asset creation**  
-- Provides **fair, transparent fundraising** for all projects  
-
----
-
-**Vote: Option 1 – Yes allow**  
-Let Qubic become the home of secure, native ICOs.
