@@ -16,7 +16,7 @@ Before QIP, Qubic had no native, standardized, or secure way to run **ICOs or to
 
 QIP solves this by providing:
 
-- A **trusted, audited, and reusable ICO framework**  
+- A **trusted, tested, and reusable ICO framework**  
 - **Transparent phase-based pricing and supply control**  
 - **Automatic distribution of funds** to team, treasury, or partners  
 - **Built-in rollover of unsold tokens** between phases  
